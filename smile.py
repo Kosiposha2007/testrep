@@ -21,8 +21,9 @@ circle(screen, (0, 0, 0), (250, 170), 7)
 
 rect(screen, (0, 0, 0), (150, 230, 100, 20))
 
-rect(screen, (0, 0, 0), (100, 120, 70, 10))
-rect(screen, (0, 0, 0), (233, 140, 70, 10))
+line(screen, (0, 0, 0), (100, 120), (180, 150), 10)
+
+line(screen, (0, 0, 0), (300, 130), (220, 160), 10)
 
 pygame.display.update()
 clock = pygame.time.Clock()
