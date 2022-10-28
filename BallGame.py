@@ -20,7 +20,7 @@ COLORS = [RED, BLUE, YELLOW, GREEN, MAGENTA, CYAN]
 color = COLORS[randint(0, 5)]
 
 
-def new_ball():
+def new_ball(): # Создает случайный первый круг
     global x, y, r, color
     x = randint(100, 500)
     y = randint(100, 300)
@@ -29,7 +29,7 @@ def new_ball():
     circle(screen, color, (x, y), r)
 
 
-def new_ball2():
+def new_ball2(): # Создает случайный второй круг
     global x2, y2, r2, color2
     x2 = randint(100, 500)
     y2 = randint(100, 300)
@@ -38,7 +38,7 @@ def new_ball2():
     circle(screen, color2, (x2, y2), r2)
 
 
-def new_rectangle():
+def new_rectangle(): # Создает случайный прямоугольник
     global x3, y3, w, h, color3
     x3 = randint(100, 500)
     y3 = randint(100, 300)
@@ -48,7 +48,7 @@ def new_rectangle():
     rect(screen, color3, (x3, y3, w, h))
 
 
-def click(event):
+def click(event): # Выводит был ли нажат первый круг
     s = pygame.mouse.get_pos()
     if x - r <= s[0] <= x + r and y - r <= s[1] <= y + r:
         return True
@@ -56,7 +56,7 @@ def click(event):
         return False
 
 
-def click2(event):
+def click2(event): # Выводит был ли нажат второй круг
     s = pygame.mouse.get_pos()
     if x2 - r2 <= s[0] <= x2 + r2 and y2 - r2 <= s[1] <= y2 + r2:
         return True
@@ -64,7 +64,7 @@ def click2(event):
         return False
 
 
-def click3(event):
+def click3(event):  # Выводит был ли нажат прямоугольник
     s = pygame.mouse.get_pos()
     if x3 <= s[0] <= x3 + w and y3 <= s[1] <= y3 + h:
         return True
@@ -78,7 +78,7 @@ count = 0
 x1 = False
 
 
-while finished == False:
+while not finished:
     clock.tick(FPS)
 
     new_ball()
@@ -97,15 +97,14 @@ while finished == False:
     while 1:
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if click(pygame.MOUSEBUTTONDOWN) == True or click2(pygame.MOUSEBUTTONDOWN) == True:
+                if click(pygame.MOUSEBUTTONDOWN) is True or click2(pygame.MOUSEBUTTONDOWN) is True:
                     count += 1
                     x1 = True
-                if click3(pygame.MOUSEBUTTONDOWN) == True:
+                if click3(pygame.MOUSEBUTTONDOWN) is True:
                     count += 5
                     x1 = True
             elif event.type == pygame.QUIT:
                 finished = True
-                #print('Click!')
         x += vx1
         y += vy1
         if x + r >= 1068:
@@ -164,7 +163,7 @@ while finished == False:
         pygame.display.update()
 
         clock.tick(FPS)
-        if x1 == True:
+        if x1 is True:
             x1 = False
             break
 pygame.quit()
