@@ -25,6 +25,10 @@ line(screen, (0, 0, 0), (100, 120), (180, 150), 10)
 
 line(screen, (0, 0, 0), (300, 130), (220, 160), 10)
 
+f1 = pygame.font.Font(None, 36)
+text1 = f1.render('Hello Привет', 1, (180, 0, 0))
+screen.blit(text1, (10, 50))
+
 pygame.display.update()
 clock = pygame.time.Clock()
 finished = False
