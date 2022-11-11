@@ -347,24 +347,28 @@ pg.init()
 screen = pg.display.set_mode((WIDTH, HEIGHT))
 clock = pg.time.Clock()
 
-bullet = 0
 balls = []
 bombs = []
+
+bullet = 0
 bullet_type = 1
 counter = 0
 number_of_targets = 2
 number_of_bonus_targets = 1
+
 gun = Gun(screen, 3)
 bonus_target = BonusTarget()
 bonus_target.live = 0
 target = Target()
 target.live = 0
 bomb = Bomb()
+
 finished = False
 left = False
 right = False
 
 while not finished:
+    clock.tick(FPS)
 
     screen.fill(WHITE)
     gun.draw()
@@ -391,7 +395,7 @@ while not finished:
         bomb.draw()
 
     pg.display.update()
-    clock.tick(FPS)
+
 
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
