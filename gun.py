@@ -345,6 +345,7 @@ class Bomb(Ball, Target):
 
 pg.init()
 screen = pg.display.set_mode((WIDTH, HEIGHT))
+clock = pg.time.Clock()
 
 bullet = 0
 balls = []
@@ -353,7 +354,6 @@ bullet_type = 1
 counter = 0
 number_of_targets = 2
 number_of_bonus_targets = 1
-clock = pg.time.Clock()
 gun = Gun(screen, 3)
 bonus_target = BonusTarget()
 bonus_target.live = 0
